@@ -70,26 +70,6 @@ class PagedInfoDialog(UIDialog):
 about_message = [
 # max line width 50 characters!
 """
-          by JP LeBreton (c) 2014-2021              |
-
-Playscii was made with the support of many nice
-people.
-
-                     Patrons:
-
-Andrew Anderson, Evan Armour, Jason Bakker,
-Aaron Brown, Jason Buck, Ben Burbank, Josh Closs,
-Lachlan Cooper, Sam Crisp,
-Torbjørn Grønnevik Dahle, Holger Dors,
-Matthew Duhamel, Jaron Eldon, Jacques Frechet,
-Katelyn Gigante, Isaac Halvorson, Leon Hartwig,
-Aubrey Hesselgren, Nick Keirle, Jón Kristinsson,
-Pat LaBine, Jeremy Lonien, Rohit Nirmal,
-James Noble, David Pittman, Richard Porczak,
-Dan Sanderson, Shannon Strucci, Pablo López Soriano,
-Jack Turner, Chris Welch, Andrew Yoder
-""",
-"""
            Programming Contributions:
 
 Mattias Gustavsson, Rohit Nirmal, Sean Gubelman,
