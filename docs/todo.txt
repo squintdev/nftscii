@@ -1,0 +1,9 @@
+TODO
+
+this file is no longer in use. see the bug list for bugs:
+
+https://heptapod.host/jp-lebreton/playscii/issues
+
+and the trello for features / improvements:
+
+https://trello.com/b/BLQBXn5H/playscii

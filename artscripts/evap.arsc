@@ -1,0 +1,14 @@
+
+# quickie "evaporate" effect
+
+spesh_idx = 127
+
+for frame, layer, x, y in TileIter(self):
+    char = self.get_char_index_at(frame, layer, x, y)
+    if char != spesh_idx and char != 0:
+        self.set_char_index_at(frame, layer, x, y, spesh_idx)
+    elif y < self.height - 1:
+        c,f,b,xf = self.get_tile_at(frame, layer, x, y+1)
+        self.set_tile_at(frame, layer, x, y, c, f, b)
+    elif y == self.height - 1:
+        self.set_char_index_at(frame, layer, x, y, 0)

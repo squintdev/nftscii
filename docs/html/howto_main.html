@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <title>Playscii - Documentation (Main)</title>
+ <link rel="stylesheet" type="text/css" href="./darkgrey.css" title="dark grey"/>
+ <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
+ <style>
+ .titlebar-playscii {
+  height: 78px;
+  padding: 0px 10% 0px 10%;
+  align: left;
+  background-repeat: repeat-x;
+  background-image: url('logo_bg_tile.png');
+ }
+ .colorbar {
+  height: 12px;
+ }
+ .item {
+  padding: 0px 5%;
+ }
+ </style>
+</head>
+<body>
+
+<div class="titlebar-playscii">
+ <img src="pslogo_w_text2.png" alt="Playscii logo"/>
+</div>
+<div class="colorbar"></div>
+
+<div class="main">
+
+<br/>
+
+<h2>Documentation</h2>
+
+<p>
+  Playscii (pronounced play-skee) is an art, animation, and game creation tool.
+</p>
+
+<p>
+  See the <a href="./howto_art.html">Art Mode</a> page for detailed info on how to create artwork and animations with Playscii.
+</p>
+
+<p>
+  See the <a href="./howto_game.html">Game Mode</a> page for detailed info on how to create games with Playscii.
+</p>
+
+<p>
+  General README-type information on running and building Playscii follows.
+</p>
+
+<br/>
+
+<h3>Table of Contents</h3>
+
+<ul>
+  <li> <a href="#reqs">System Requirements</a> </li>
+  <li> <a href="#run">Running</a> </li>
+  <li> <a href="#config">Configuration</a> </li>
+  <li> <a href="#runfromsource">Running from Source</a> </li>
+  <li> <a href="#build">Building</a> </li>
+  <li> <a href="#roadmap">Roadmap</a> </li>
+</ul>
+
+<br/>
+
+<a id="reqs"><h4>System Requirements</h4></a>
+<div class="block">
+<p>
+  Playscii should run in Windows Vista, 7, 8.1, and 10 (32-bit and 64-bit), macOS 10.10 Yosemite or higher, and any reasonably modern desktop version of Linux.
+</p>
+  Hardware-wise you'll need a video card that's capable of OpenGL 2.1, with GLSL 1.30 support. If your computer was made after 2008 or so, you're probably fine.  Playscii will detect your supported GLSL version on startup and quit with an error message if version 1.30 or higher is not found.
+</p>
+</div>
+
+<a id="run"><h4>Running</h4></a>
+<div class="block">
+<p>
+If you're looking at Playscii in the <a href="https://itch.io/app">itch.io app</a>, simply click Install and then Launch! Note that if you're doing this in Linux, you're <a href="#runfromsource">running from source</a> and should follow the instructions for installing dependencies in the section below.
+</p>
+<p>
+If you downloaded the ZIP file with "win32" in its name, you should have a Windows build you can run by double-clicking <tt>playscii.exe</tt>, without needing to install anything listed below.
+</p>
+<p>
+If you downloaded the DMG file, this is the Mac application bundle which can be installed in the standard manner, by opening the disk image file and then dragging <tt>Playscii.app</tt> into your <tt>Applications</tt> folder. You don't need to install anything else.
+</p>
+<p>
+If you downloaded the ZIP file with "source" in its name or from the project's <a href="https://heptapod.host/jp-lebreton/playscii">source code repository</a>, you can run Playscii from its source code on any of the supported operating systems if you have Python and a few libraries installed.  See the <a href="#runfromsource">Running from Source</a> and <a href="#build">Building</a> sections below.
+</p>
+</div>
+
+<a id="config"><h4>Configuration</h4></a>
+<div class="block">
+<p>
+  Most users won't need to edit them, but just in case - Playscii places its configuration files in OS-appropriate folders:
+  <ul>
+	<li>
+	  Windows 7-10: <tt>C:\Users\[your username]\AppData\Local\Playscii</tt>
+	</li>
+	<li>
+	  Linux: <tt>~/.config/Playscii</tt>
+	</li>
+	<li>
+	  macOS: <tt>~/Library/Application Support/Playscii</tt>
+	</li>
+  </ul>
+</p>
+<p>
+  Documents (your art, color palettes, etc) are stored in eg <tt>~/Documents/Playscii</tt> in macOS and Linux, and the appropriate "My Documents" folder in Windows.
+</p>
+<p>
+  You can override many program defaults in the file <tt>playscii.cfg</tt>.  This file starts with a few possible "commented-out" overrides to get you started. You can enable one by deleting the # character at the start of the line. Every line in that file must be a valid Python expression, so edit carefully!
+</p>
+<p>
+  Likewise you can change Playscii's keyboard command binds in the <tt>binds.cfg</tt> file.
+</p>
+</div>
+
+<a id="runfromsource"><h4>Running from Source</h4></a>
+<div class="block">
+<p>
+  Running from source is only recommended if a binary build isn't available for your OS and/or you want to play with the latest still-in-development version.  If you're doing so, you'll need some version of Python 3 - sorry, Python 2 is not supported - and the following libraries:
+</p>
+<ul>
+  <li>
+	<a href="https://github.com/marcusva/py-sdl2">PySDL2</a>
+  </li>
+  <li>
+	<a href="http://pyopengl.sourceforge.net">PyOpenGL</a>
+  </li>
+  <li>
+	<a href="http://www.numpy.org">Numpy</a>
+  </li>
+  <li>
+	<a href="https://github.com/python-pillow/Pillow">Pillow</a> or any compatible derivative of Python Image Library (PIL)
+  </li>
+  <li>
+	<a href="https://github.com/ActiveState/appdirs">appdirs</a>
+  </li>
+  <li>
+	<a href="https://github.com/BurntSushi/pdoc">pdoc</a> - only needed if you want to generate documentation from Playscii's source itself. Mainly useful for game creation.
+  </li>
+</ul>
+<p>
+These libraries are all pretty easy to install using PIP, the package manager that comes with Python 3.4 and later.  Find the pip executable and run it from the command line, like so:
+</p>
+<tt>pip install pysdl2 pyopengl numpy pillow appdirs pdoc</tt>
+<p>
+In Windows the pip executable is in the <tt>Scripts\</tt> subfolder of your Python install folder, eg <tt>c:\Python34</tt>.  On some Unix-like systems (Linux and macOS) the pip binary to run may be called <tt>pip3</tt> to distinguish it from any Python 2 installations.  On Unix-like systems you may also need to run pip as super user to let it install system libraries, eg by pre-pending <tt>sudo</tt> to the command above.
+</p>
+<p>
+On most systems, <a href="https://www.libsdl.org/projects/SDL_mixer/">SDL2_mixer</a> - which Playscii's Game Mode uses for sound playback - is a separate library from SDL2 core, so you'll also need to install that, by providing SDL2_mixer.dll and all its dependency DLLs in Windows, or as a system library (eg from a package manager) on *NIX-based operating systems.
+</p>
+<p>
+Once you have the dependencies installed, you can run Playscii from source like so:
+</p>
+<p>
+<tt>python playscii.py [optional name of art file to open]</tt>
+</p>
+</div>
+
+<a id="build"><h4>Building</h4></a>
+<div class="block">
+<p>
+  To produce Windows EXE builds, in addition to the above dependencies you'll also need <a href="http://www.pyinstaller.org/">PyInstaller</a>.
+</p>
+<p>
+  Simply run <tt>build_windows.bat</tt> and it will place a complete build in the <tt>dist\</tt> subfolder.  You may need to provide needed DLLs, such as SDL2.dll, SDL2_mixer.dll and its dependencies.
+</p>
+<p>
+  The process for Mac Application bundles is quite similar: install PyInstaller, and run the <tt>build_mac.sh</tt> script.
+</p>
+</div>
+
+<a id="roadmap"><h4>Roadmap</h4></a>
+<div class="block">
+<p>
+Many of Playscii's intended features have now been implemented, but you can see a list of planned features on <a href="https://trello.com/b/BLQBXn5H/playscii">the Playscii Trello</a>. Please don't take anything there as a promise, though. If you'd find something on there especially valuable, feel free to vote or comment!
+</p>
+</div>
+
+<br/><br/>
+
+<b><a href="http://vectorpoem.com/playscii"><< back to Playscii main page</a></b>
+							 
+<br/><br/><br/>
+
+</div>
+</body>

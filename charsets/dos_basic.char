@@ -1,0 +1,6 @@
+// "Basic" (only keyboardable chars) ASCII
+dos_basic.png
+32, 3
+ !"#$%&'()*+,-./0123456789:;<=>?
+@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
+`abcdefghijklmnopqrstuvwxyz{|}~ 

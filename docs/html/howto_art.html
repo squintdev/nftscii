@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <title>Playscii - Documentation (Art Mode)</title>
+ <link rel="stylesheet" type="text/css" href="./darkgrey.css" title="dark grey"/>
+ <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
+ <style>
+ .titlebar-playscii {
+  height: 78px;
+  padding: 0px 10% 0px 10%;
+  align: left;
+  background-repeat: repeat-x;
+  background-image: url('logo_bg_tile.png');
+ }
+ .colorbar {
+  height: 12px;
+ }
+ .item {
+  padding: 0px 5%;
+ }
+ </style>
+</head>
+<body>
+
+<div class="titlebar-playscii">
+ <img src="pslogo_w_text2.png" alt="Playscii logo"/>
+</div>
+<div class="colorbar"></div>
+
+<div class="main">
+
+<br/>
+
+<p>
+  Using Playscii's Art Mode, you can create art and animation. If you see "Art Mode" in the top right corner of the Playscii application window, you're in Art Mode. This page covers all the things you can do in this mode.
+</p>
+
+<br/>
+
+<h3>Table of Contents</h3>
+
+<ul>
+  <li> <a href="#basics">Painting Basics</a> </li>
+  <li> <a href="#tiles">Tile Character/Color/Transform</a> </li>
+  <li> <a href="#transparency">Transparency</a> </li>
+  <li> <a href="#picker">the Picker</a> </li>
+  <li> <a href="#menubar">Menu Bar</a> </li>
+  <li> <a href="#tools">Tools</a> </li>
+  <li> <a href="#toolsettings">Tool Settings</a> </li>
+  <li> <a href="#camera">Panning and Zooming</a> </li>
+  <li> <a href="#grid">the Grid</a> </li>
+  <li> <a href="#crt">CRT Filter</a> </li>
+  <li> <a href="#documents">Working with Documents</a> </li>
+  <li> <a href="#resize">Cropping and Resizing</a> </li>
+  <li> <a href="#flip">Flipping</a> </li>
+  <li> <a href="#layers">Layers</a> </li>
+  <li> <a href="#animation">Animation and Frames</a> </li>
+  <li> <a href="#charsets">Character Set Selector</a> </li>
+  <li> <a href="#palettes">Color Palette Selector</a> </li>
+  <li> <a href="#importandexport">Importing and Exporting</a> </li>
+  <li> <a href="#exportimage">Image and Animation Export</a> </li>
+  <li> <a href="#imageconversion">Bitmap Image Conversion</a> </li>
+  <li> <a href="#customcharsets">Custom Character Sets</a> </li>
+  <li> <a href="#custompalettes">Custom Color Palettes</a> </li>
+  <li> <a href="#indices">Technical Note: Indices</a> </li>
+  <li> <a href="#artscripts">Artscripts: Making Art from Code</a> </li>
+</ul>
+
+<br/>
+
+<a id="basics"> <h4>Painting Basics</h4> </a>
+<div class="block">
+<p>
+  A Playscii document is a grid of tiles called an Art. Each tile in an Art has a character, a foreground color, a background color, and a transform. Click and hold the <code>primary mouse button</code>, or <code>Enter/Return</code>, anywhere on a document to paint with the active character, color, and transform.
+</p>
+</div>
+
+<a id="tiles"> <h4>Tile Character/Color/Transform</h4> </a>
+<div class="block">
+<p>
+  Character and foreground/background color are pretty self-explanatory. "Transform" refers to whether a character is flipped (horizontally or vertically, aka the X and Y axes) or rotated (90, 180, or 270 degrees). The current active character, colors, and transform are always shown on the status bar along the bottom edge of the screen.
+</p>
+<center><img src="./art_statusbar1.jpg" alt="image of status bar"/></center>
+<p>
+  In this image, the 'A' character is selected, green is the foreground color, blue is the background color, and the transform is "normal", ie not flipped or rotated.
+</p>
+</div>
+
+<a id="transparency"> <h4>Transparency</h4> </a>
+<div class="block">
+<p>
+  In addition to the regular colors, the foreground and/or background color for a tile can also be transparent. Anything transparent shows through to whatever (if anything) is behind it. In Playscii's user interface, this special color is visually represented with a red X.
+</p>
+<center><img src="./art_statusbar2.jpg" alt="image of status bar"/></center>
+<p>
+  In this image, the '7' character is selected, green is the foreground color, the background is transparent, and the transform is "Flip X" ie flipped horizontally.
+</p>
+</div>
+
+<a id="picker"> <h4>the Picker</h4> </a>
+<div class="block">
+<p>
+  Press and hold <code>space bar</code> to bring up the "picker" that lets you quickly select characters, colors, and transforms. Here's a diagram showing all the features of the picker:
+</p>
+<center><img src="./art_picker.jpg" alt="image of picker with elements labeled by number"/></center>
+<ol>
+  <li> <b>Character swatch</b> - click a character here to set it as the active character for painting. </li>
+  <li> <b>Color swatch</b> - click the primary mouse button on a color here to set it as the active foreground color, secondary mouse click to set it as the active background color. </li>
+  <li> <b>Transform selector</b> - click one of the items here to set a different active transform (see <a href="#tiles">transform</a> section above). </li>
+  <li> <b>Tool/picker tabs</b> - click the left tab to bring up settings for each tool (see <a href="#tools">Tools</a> and <a href="#toolsettings">Affects Masks</a> sections below), click the right tab to bring up the picker view. </li>
+  <li> <b>Current character set</b> - click this to bring up the <a href="#charsets">character set selector</a>. </li>
+  <li> <b>Current palette</b> - click this to bring up the <a href="#palettes">palette selector</a>. </li>
+  <li> <b>Character swatch size</b> - click the + and - buttons to change the character swatch's display size - bump it up if characters are too hard to see or click on your display. </li>
+</ol>
+<p>
+  If it's more comfortable for you to tap <code>space bar</code> rather than hold it, you can change that behavior with "Picker toggle key: press/hold" in the Tool menu.
+</p>
+</div>
+
+<a id="menubar"> <h4>Menu Bar</h4> </a>
+<div class="block">
+<p>
+  The menu bar along the top edge of the screen provides access to much of Playscii's functionality. Click a menu name to open it and select from the available commands. Many commands have an associated keyboard shortcut, displayed to the right of the menu entry.
+</p>
+<center><img src="./art_menubar.jpg" alt="the Art Mode menu bar"/></center>
+</div>
+
+<a id="tools"> <h4>Tools</h4> </a>
+<div class="block">
+<p>
+  You can pick the current tool from the Tool menu bar. The cursor will always show an icon indicating the currently selected tool.
+</p>
+<ul>
+<li> <img src="./tool_paint.png" alt="Paint tool icon"/> <b>Paint</b> - change the tiles within the cursor area to the current active character/colors/transform.
+<li> <img src="./tool_erase.png" alt="Erase tool icon"/> <b>Erase</b> - "erase" the tiles within the cursor area, removing characters and leaving only the <i>current active</i> background color.
+<li> <img src="./tool_rotate.png" alt="Rotate tool icon"/> <b>Rotate</b> - rotate the tiles within the cursor area 90 degrees, relative to each character's current rotation.
+<li> <img src="./tool_grab.png" alt="Grab tool icon"/> <b>Grab</b> - set the character/color/transform of the tile beneath the cursor as the current active character/color/transform. Secondary mouse button does this no matter what tool you have selected, so that you can very quickly sample what you need and continue painting.
+<li> <img src="./tool_text.png" alt="Text tool icon"/> <b>Text</b> - click anywhere in the document to start entering alphanumeric text at that location. Press <code>Escape</code> to stop entering text.
+<li> <img src="./tool_select.png" alt="Select tool icon"/> <b>Select</b> - click and drag the mouse (or hold <code>Enter/Return</code> + <code>arrow keys</code>) to define a selected area. Other tool operations will be restricted to the selection area, and you can also cut/copy the selected area and paint it with the Paste tool (see below). Holding <code>Shift</code> while dragging a box adds to the current selection area, and holding <code>Control</code> while dragging a box subtracts it from the current selection area. Holding neither mod key replaces any previous selection.
+<li> <img src="./tool_paste.png" alt="Paste tool icon"/> <b>Paste</b> - paint with the last cut/copied tiles.
+</ul>
+</div>
+
+<a id="toolsettings"> <h4>Tool Settings</h4> </a>
+<div class="block">
+<p>
+  The Picker lets you change the settings for some tools:
+</p>
+<ul>
+<li> <b>Brush Size</b> - increase or decrease the size of the square area a tool affects. Doesn't apply to the grab, text, select, and paste tools. </li>
+<li> <b>"Affects character / foreground color / background color / transform" masks</b> - by default a tool will affect all of these things, but a tool's effect on each tile attribute can be disabled selectively. Hovering the cursor over a swatch will always preview the paint result, which might otherwise be a bit difficult to visualize.
+  <p>
+  <center>
+  <table>
+	<tr>
+	  <td width="300px"> <img src="./art_mask1.png" alt="affects: all" width="300px"/> </td>
+	  <td width="300px"> <img src="./art_mask2.png" alt="affects: fg/bg color and xform, no char" width="300px"/> </td>
+	  <td width="300px"> <img src="./art_mask3.png" alt="affects: bg color and xform, no char and fg color" width="300px"/> </td>
+	</tr><tr>
+	  <td> <center> Affects: all </center> </td>
+	  <td> <center> Affects: colors and transform, but not character </center>  </td>
+	  <td> <center> Affects: BG color and transform, but not character and FG color </center> </td>
+	</tr><tr>
+	  <td> <img src="./art_mask4.png" alt="affects: bg color" width="300px"/> </td>
+	  <td> <img src="./art_mask5.png" alt="affects: char and bg color, no fg color and xform" width="300px"/> </td>
+	</tr><tr>
+	  <td> <center> Affects: only background color </center> </td>
+	  <td> <center> Affects: character and BG color, but not FG color and transform </center>  </td>
+	</tr>
+  </table>
+  </center>
+  </p>
+  </li>
+</ul>
+</div>
+
+<a id="camera"> <h4>Panning and Zooming</h4> </a>
+<div class="block">
+<p>
+  To zoom the view closer or further from the document you're editing, press <code>Shift-X</code> or <code>Shift-Z</code> respectively or scroll the mouse wheel up or down.
+</p>
+<p>
+  Pressing <code>=</code> or <code>-</code> will snap-zoom the view closer or further in "pixel exact" increments, which gives a 1:1, 2:2, 4:4 etc correspondance between what you're seeing and the pixel size of your character set. This can be useful if you intend to export images where exact dimensions are important.
+</p>
+<p>
+  To pan the view, use <code>shift</code> and the <code>arrow keys</code> or <code>W/A/S/D</code> (for up/left/down/right respectively), or click and drag the <code>middle mouse button</code>.
+</p>
+<p>
+  Pressing <code>Z</code> will center the view on your art and snap the view to a 1:1 pixel exact zoom level. Pressing <code>Z</code> again without moving the view will return it to its previous location. This is good for stepping back for a quick look at the overall piece while you're working on details.
+</p>
+<p>
+  You can also set the zoom level manually with "Set camera zoom..." in the View menu.
+</p>
+<p>
+  You can also tilt the camera with "Camera tilt" in the View menu, but this isn't useful for much and is a bit broken at the moment.
+</p>
+</div>
+
+<a id="grid"> <h4>the Grid</h4> </a>
+<div class="block">
+<p>
+  By default Playscii displays a light grid over your art showing the boundaries of each tile, but you can turn this off with "Grid" in the View menu.
+</p>
+</div>
+
+<a id="crt"> <h4>CRT Filter</h4> </a>
+<div class="block">
+<p>
+  Playscii can display your work with a screen effect that emulates the look of old TVs or Monitors, ie cathode ray tubes. You can enable this with "CRT filter" in the View menu, or pressing <code>Shift-R</code>. If Playscii runs slowly on your computer, try disabling the CRT filter.
+</p>
+<center>
+  <table>
+	<tr>
+	  <td> <img src="./art_crt_on.jpg" alt="CRT filter on"/> </td>
+	  <td> <img src="./art_crt_off.png" alt="CRT filter off"/> </td>
+	</tr><tr>
+	  <td> <center>CRT filter on</center> </td>
+	  <td> <center>CRT filter off</center> </td>
+	</tr>
+  </table>
+</center>
+</div>
+
+<a id="documents"> <h4>Working with Documents</h4> </a>
+<div class="block">
+<p>
+  You can save the current document, create a new document, and open a previously saved document from the File menu. You can have multiple documents open at the same time and switch between them by pressing <code>Control-Tab</code>, while <code>Shift-Control-Tab</code> cycles backwards through open documents.
+</p>
+<p>
+You can also see a list of all open documents at the bottom of the Art menu.
+</p>
+</div>
+
+<a id="resize"> <h4>Cropping and Resizing</h4> </a>
+<div class="block">
+<p>
+  You can crop a document by selecting an area with the <a href="#tools">Select</a> tool and selecting "Crop to selection" from the Art menu.
+</p>
+<p>
+  You can resize a document with "Resize" from the Art menu. This opens a dialog where you can enter the new desired size. If the desired size is smaller than the current size, you can specify a tile to be the new top left corner in the "Crop Start X/Y" fields.
+</p>
+</div>
+
+<a id="flip"> <h4>Flipping</h4> </a>
+<div class="block">
+<p>
+  You can flip an entire document, horizontally or vertically (called "Mirror" and "Flip" in some other art programs), with "Flip horizontally" and "Flip vertically" from the Art menu. The "Flip affects xforms" setting determines whether or not this operation also flips each individual tile by changing its transform.
+</p>
+</div>
+
+<a id="layers"> <h4>Layers</h4> </a>
+<div class="block">
+<p>
+  Playscii documents can have multiple layers, similar to Photoshop or GIMP. You can position these layers in 3D space for a parallax effect.
+</p>
+<p>
+  In the Layer menu, you can create a new blank layer with "Add layer" or duplicate an existing one with "Duplicate this layer". The dialog will ask you to enter a name for the layer (purely for ease of identification) and a "Z-depth", ie how far from the default base depth, you want the layer to appear at. The following two Layer menu items let you change these two respective values.
+</p>
+<p>
+  The "current active layer" is the one that your tools affect. You can cycle which layer is active with "Next layer" and "Previous layer", or with <code>[</code> and <code>]</code>.
+</p>
+<p>
+  You can also select which layer is active in the layer list at the bottom of the Layer menu. The number of the current active layer is always shown in the status bar and corresponds to the order of this list.
+</p>
+<center><img src="./art_layermenu.jpg" alt="image of layer menu and status bar"/></center>
+<p>
+  When working on a particular layer, sometimes you want to see the other layers and sometimes you don't. "Inactive layers: Visible/Dim/Invisible" in the Layer menu cycles through three settings: all layers are 100% visible, non-active layers are dim but still partially visible, and non-active layers are completely hidden.
+</p>
+</div>
+
+<a id="animation"> <h4>Animation and Frames</h4> </a>
+<div class="block">
+<p>
+  Playscii documents can be animated, with multiple frames that each display for a "hold time" before advancing to the next. For documents with more than one frame, animation playback can be started and paused in Art Mode with "Start/Stop animation playback" in the Frame menu, or <code>P</code>.
+</p>
+<p>
+  The "current active frame" is the one shown in the main editing view, that your tools affect. You can advance the currently active frame with "Next frame" and "Previous frame" in the Frame menu, or <code>&lt;</code> and <code>&gt;</code>.
+</p>
+<p>
+  In the Frame menu, you can create a new blank frame with "Add frame" or duplicate an existing one with "Duplicate this frame". The dialog will ask you to enter a hold time for the new frame, and an index - the number the new frame should be inserted at in the 1-to-N sequence. You can change a frame's hold time and sequence index with the subsequent Frame menu items. You can also set all frame hold times to be the same with "Change all frames' hold times".
+</p>
+<p>
+  Seeing the next and/or previous frames in the sequence, an "onion skin" view as it's called in traditional animation, can be a big help when animating. "Show onion skin frames", or <code>O</code>, toggles this off and on. In that same section of the Frame menu you can specify how many frames to show, as well as whether only previous frames, only next frames, or both are shown.
+</p>
+</div>
+
+<a id="charsets"> <h4>Character Set Selector</h4> </a>
+<div class="block">
+<p>
+  By default Playscii lets you paint with the Commodore 64 <a href="https://en.wikipedia.org/wiki/PETSCII">PETSCII character set</a>, but it supports many other sets out of the box, and you can <a href="#customcharsets">define your own</a>. The character set selector lets you pick from the the available sets. Clicking the "Set" button in this selector changes the current document's character set. This change doesn't affect the <a href="#indices">character index numbers</a> of your actual document, so it's safe to experiment with different sets.
+</p>
+</div>
+
+<a id="palettes"> <h4>Color Palette Selector</h4> </a>
+<div class="block">
+<p>
+  Similar to the <a href="#charsets">character set selector</a>, this selector lets you choose a different color palette from the default Commodore 64 palette. You can also <a href="#custompalettes">define your own</a> with nothing more than an image.
+</p>
+</div>
+
+<a id="importandexport"> <h4>Importing and Exporting</h4> </a>
+<div class="block">
+<p>
+  New with version 0.9.0, Playscii has an Import/Export plugin system you can use to get images in and out of Playscii from other formats. For example, you can export your art into a <a href="#exportimage">standard image format</a> for easy sharing, export animations in GIF format, <a href="#imageconversion">convert bitmap images into ASCII</a>, and import art that was originally created in other ASCII formats or even text files.
+</p>
+<center><img src="./art_converters.jpg" alt="image of importer chooser"/></center>
+<p>
+  As it's a plugin system, you can also write your own converters. Playscii's built-in converters are stored in its <a href="../../formats/"><tt>formats/</tt></a> subfolder, and you can place any you write in the <tt>formats/</tt> subfolder of your Playscii documents folder. Weighing in at under 30 lines of code, the <a href="../../formats/in_txt.py">Plain Text Importer</a> is a good example of how to get data from a very simple format into a Playscii art document.
+</p>
+</div>
+
+<a id="exportimage"> <h4>Image and Animation Export</h4> </a>
+<div class="block">
+<p>
+  Playscii documents use a custom file format with a .PSCI extension which saves things like tile and layer data, but you may want to export your art as a conventional bitmap image. You can export the current active frame of the current document to a PNG format image with "Export" in the File menu and then selecting "PNG image". You'll then see an options screen allowing you to set the pixel dimensions of the output, and whether or not it uses the CRT filter.
+</p>
+<p>
+  You can also export animated documents in animated GIF format with "Animated GIF image" in the exporter chooser. GIF image animation uses the same "frame hold time" concept that Playscii uses, so the resulting GIF should look the same as it does in Playscii.
+</p>
+<p>
+  If you're making a game in another engine and just using Playscii to paint sprites, you might want to do something like export a series of images for each layer in an Art, or each frame in an animation. The "PNG image set" exporter will take care of this for you. It provides the same options as the single image PNG exporter, plus the option to export frames and/or layers, and gives you a preview of what the exported filenames will look like. The <code>Control-E</code> shortcut for "run last exporter on current Art" can be especially useful here if you have multiple pieces of art open.
+</div>
+
+<a id="imageconversion"> <h4>Bitmap Image Conversion</h4> </a>
+<div class="block">
+<p>
+  Converting a Playscii document to a conventional bitmap image is very straightforward and preserves the image 100%, but doing the reverse is trickier and can have very aesthetically unique results.
+</p>
+<center>
+  <table>
+	<tr>
+	  <td> <img src="./exidy_sorcerer_orig.jpg" alt="sample bitmap image"/> </td>
+	  <td> <img src="./exidy_sorcerer_converted.png" alt="sample image, converted to PETSCII"/> </td>
+	</tr><tr>
+	  <td> <center>Before</center> </td>
+	  <td> <center>After</center> </td>
+	</tr>
+  </table>
+</center>
+<p>
+  With the "Bitmap image" importer under "Import" in the File menu, you can select a bitmap image in JPEG or PNG format to convert into Playscii using the current document character set. An options screen then lets you specify whether to use the current document's palette, or generate a new one from the source image (as with <a href="#custompalettes">Palette from File</a>), as well as define the dimensions of the new art document.
+</p>
+<p>
+  In brief, here's how the conversion process works: the source image is first resized to the current document size and its colors converted to the current palette. Each tile-sized block in the source image is then compared against all possible combinations of character and foreground/background color. When a best fit is found, that tile is painted at the source block's location and the next block is converted. This process is quite computationally intensive and may take a long time, even on fast computers. You can press <code>Escape</code> at any time to abort it.
+</p>
+<p>
+  The document size and color palette at the time of conversion have a big impact on the look of the final result, so you may want to experiment with different settings.
+</p>
+</div>
+
+<a id="customcharsets"> <h4>Custom Character Sets</h4> </a>
+<div class="block">
+<p>
+  Playscii includes several classic character sets from old computer systems, which you can preview and select in the <a href="#charsets">Character Set Selector</a>. You can also define custom character sets.
+</p>
+<p>
+  Character set data for Playscii consists of two files, placed together in the <tt>charsets/</tt> subfolder in your Playscii documents folder: an image file with the bitmap data of each character, and a text-based file with a <tt>.char</tt> extension:
+</p>
+<div class="block">
+  <h4>Character Set Source Image</h4>
+<p>
+  This image should contain every character you want in the set, arranged in a uniform grid - variable-width fonts are not supported. The topmost, leftmost character should always be blank - Playscii always assumes this <a href="#indices">index zero</a> is the blank character.
+</p>
+<p>
+  Any pixel in the source image that is pure black (RGB 0, 0, 0) will be considered transparent, ie a tile's background color will show through to this. Any pixel that isn't this color will be taken as part of the character and "tinted" by the foregorund color, with pure white showing the tile pixels exactly as they appear in the source image. As of Playscii 0.8.2 tiles can contain multiple colors, and the Ultima IV tile set is provided as an example of this.
+</p>
+<p>
+  Technically the source image can be in any format Playscii supports (PNG, GIF, JPEG, BMP) but PNG is preferred - using a <a href="https://en.wikipedia.org/wiki/Lossy_compression">lossy file format</a> like JPEG will cause problems, because it produces unintended non-pure-black pixels. This can also result from using any form of smooth scaling in an image editing program - use "nearest neighbor" scaling in even multiples of the original pixel size if you don't want your characters to be distorted.
+</p>
+
+  <h4>Character Set Data File</h4>
+<p>
+  You can create or edit this file in any text editor. It defines three things: the filename of the source image to use, the width and height <i>in tiles</i> of the source image, and the mapping of characters to blocks in the source image. In this file all lines that start with // (the double slash) are ignored so you can add comments as you like.
+</p>
+<p>
+  The first line of this file names the image file with the bitmap character data - if it's left blank, Playscii will look for the same filename but with a <tt>.png</tt> extension.
+</p>
+<p>
+  The second line of the file is the width and height of the character grid in the bitmap file, as integer numbers separated by a comma. Playscii needs this data to know how many pixels are in a tile for this character set.
+</p>
+<p>
+  All subsequent lines are "mapping" data, a 1:1 correspondance between the characters on each line and the blocks in the bitmap. If a block doesn't have a representative character you can type on a keyboard, just leave it a blank space, but keep track of the number of blank spaces. You can even omit this data entirely, mostly it just means that the <a href="#tools">Text Tool</a> won't know how to map the keys you press onto a character in your set.
+</p>
+</div>
+
+<p>
+  If you have issues getting a custom character set to work, the character sets already included with Playscii are a useful reference. You can find them in the <tt>charsets/</tt> subfolder of the folder you're running Playscii from. Here's the ZX Spectrum character set data as an example:
+</p>
+<center>
+<table>
+  <tr>
+	<td> <img src="speccy.png" alt="ZX Spectrum character set" width="256px"/> </td>
+	<td width="100px"> </td>
+	<td bgcolor="#484848">
+	  <tt>
+// ignore this  <br/>
+speccy.png      <br/>
+16,4            <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&nbsp;$:?<br/>
+()><=+-*/;,.0123<br/>
+456789ABCDEFGHIJ<br/>
+KLMNOPQRSTUVWXYZ<br/>
+// end
+</tt>
+	</td>
+  </tr><tr>
+	<td> <center>speccy.png</center> </td>
+	<td> </td>
+	<td> <center>speccy.char</center> </td>
+  </tr>
+</table>
+</center>
+<p>
+  Lastly, know that if you're working on character set data or images in an external program such as a text or image editor, Playscii (as of version 0.9.2) will automatically reload changes as you save them.
+</p>
+
+</div>
+
+<a id="custompalettes"> <h4>Custom Color Palettes</h4> </a>
+<div class="block">
+<p>
+  Playscii includes several classic color palettes from old computers and game systems, which you can preview and select in the <a href="#palettes">Palette Selector</a>. You can also define custom color palettes in two different ways:
+</p>
+<ul>
+  <li> You can simply drop an image into the <tt>palettes/</tt> subfolder of your Playscii documents folder. The image is scanned from top left to bottom right, and each unique color found is added to the palette. You can create color swatch images in traditional paint programs for this purpose quite easily. As of version 0.9.0, Playscii will automatically reload palette images as you change them in another program.</li>
+  <li> If you have an image with a larger number of unique colors, you can easily turn it into a custom palette with "Palette from image" in the Char/Color menu. After selecting a source image, the dialog lets you specify a name for the new palette file, and a target number of unique colors the source image will be reduced to. </li>
+</ul>
+</div>
+
+<a id="indices"> <h4>Technical Note: Indices</h4> </a>
+<div class="block">
+<p>
+While this is more likely to be of use to <a href="./howto_game.html">Game Mode</a> authors it bears mentioning here: a tile's character, foreground and background color, and transform are all stored internally as an index, ie a positive integer number. A tile's character index corresponds with its character's position in the Art's <a href="#charsets">character set</a>, a tile's color indices correspond with its fg/bg colors' positions in the Art's <a href="#palettes">color palette</a>, and a tile's <a href="#tiles">transform</a> index corresponds to the <tt>UV_*</tt> enum values defined in the <a href="./generated/art.html">Art module</a>: UV_NORMAL, UV_ROTATE90, UV_FLIPX, and so on.
+</p>
+<p>
+You can see these indices stored in the JSON of a .PSCI file, and if you're handy with Playscii's <a href="./howto_game.html#console">developer console</a> you can get and set the currently selected values with <tt>ui.selected_char</tt>, <tt>ui.selected_fg_color</tt>, <tt>ui.selected_bg_color</tt>, and <tt>ui.selected_xform</tt>.
+</p>
+</div>
+
+<a id="artscripts"> <h4>Artscripts: Making Art from Code</h4> </a>
+<div class="block">
+<p>
+Playscii makes heavy use of Python's dynamic nature, so there are many ways besides the art tools described above to create art. You can peek and poke values at the current active art from the <a href="./howto_game.html#console">developer console</a>, and you can also use something called Artscripts to run arbitrary Python code on a given Art, opening a broad toolbox of generative effects.</p>
+</p>
+<p>
+In Art Mode, you can run an artscript on the current active art with "Run Artscript..." from the Art menu. You can quickly run that script subsequent times with <code>Control-T</code>. Artscripts are re-read on each run, so you can refine your code in a text editor and see the results in Playscii with a keystroke.
+</p>
+<p>
+You can also run Artscripts from the dev console with the <tt>scr</tt> command, and you can set an art script to run every N seconds with the <tt>screv</tt> command. You can also run them from <a href="./howto_game.html">Game Mode</a> code with an Art's <tt>run_script</tt> and <tt>run_script_every</tt> methods.
+</p>
+<p>
+Artscripts are kept in the <tt>artscripts/</tt> subfolder of your Playscii documents folder, and have an <tt>.arsc</tt> file extension. Every line in an art script must be valid Python code. Comment lines starting with <tt>#</tt> are fine.
+</p>
+<p>
+An Artscript executes from within the Art's namespace, so referring to <tt>self</tt> from one refers to the Art itself. An <a href="https://wiki.python.org/moin/Iterator">iterator</a> class called TileIter provides an easy way to iterate over all tiles in all frames and layers in an art, like so:
+<pre>
+for frame, layer, x, y in TileIter(self):
+    self.set_char_index_at(frame, layer, x, y, random.randint(0, 64))
+</pre>
+The above code sets every tile in the art to a random (indices 0 through 64) character.
+</p>
+<p>
+There are a few example Artscripts included in the Playscii application folder, most of which were written early in its development. <tt>conway.arsc</tt> runs a variant of <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a> on each tile in the art, <tt>dissolve.arsc</tt> does an odd dissolve-like effect, and so on.
+</p>
+<p>
+If you write an Artscript that's broadly useful and would be worth including with Playscii, please let us know! A pull request for <a href="https://heptapod.host/jp-lebreton/playscii">the project's Bitbucket</a> would be easiest to integrate, but <a href="http://vectorpoem.com/contact.html">email</a> works too.
+</p>
+</div>
+
+<br/><br/>
+
+<b><a href="./howto_main.html"><< back to main documentation page</a></b>
+							 
+<br/><br/><br/>
+
+
+</div>
+</body>

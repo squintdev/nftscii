@@ -1,0 +1,64 @@
+
+Playscii was made with the support of many nice people:
+
+
+Patrons:
+
+Andrew Anderson
+Evan Armour
+Jason Bakker
+Aaron Brown
+Ben Burbank
+Josh Closs
+Lachlan Cooper
+Sam Crisp
+Holger Dors
+Matthew Duhamel
+Jacques Frechet
+Katelyn Gigante
+Isaac Halvorson
+Leon Hartwig
+Aubrey Hesselgren
+Nick Keirle
+Jón Kristinsson
+Jeremy Lonien
+Rohit Nirmal
+James Noble
+David Pittman
+Shannon Smith
+Jack Turner
+Chris Welch
+Andrew Yoder
+
+
+Programming Help:
+
+Shawn Walker
+Sean Barrett
+Mark Wonnacott
+Ian MacLarty
+Goldbuick
+Tin Tvrtković
+Sean Gubelman
+Erin Congden
+Rohit Nirmal
+
+Tool Design Inspiration:
+
+Anna Anthropy
+Andi McClure
+Bret Victor
+Tim Sweeney (ZZT)
+Craig Hickman (Kid Pix)
+Bill Atkinson (HyperCard)
+
+Love, Encouragement, Moral Support:
+
+L Stiger
+Gail, Gil, and Elise LeBreton
+Brendan Sinclair
+Liz Ryerson
+Johnnemann Nordhagen
+Aubrey Hesselgren
+Zak McClendon
+#tool-design

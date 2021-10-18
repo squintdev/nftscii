@@ -1,0 +1,16 @@
+// Commodore 64 (EDSCII version)
+// first line: source image (base filename + .png assumed)
+c64_edscii.png
+// second line: map dimensions
+16, 10
+ !"#$%&'()*+,-./
+0123456789:;<=>?
+@abcdefghijklmno
+pqrstuvwxyz[ ]  
+ ABCDEFGHIJKLMNO
+PQRSTUVWXYZ     
+   _            
+                
+                
+          \
+// end

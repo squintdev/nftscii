@@ -1,0 +1,46 @@
+# DEFAULT CONFIG FILE TEMPLATE, DO NOT MODIFY
+# playscii local config file
+
+# override class defaults here.
+# everything in this file must be a valid Python expression.
+# many lines are here for reference but commented out, uncomment to activate.
+
+# most of these settings require restarting Playscii to take effect.
+
+Application.fullscreen = False
+Application.window_width, Application.window_height = 1280, 720
+
+# try it, you'll like it :]
+Application.capslock_is_ctrl = True
+
+Art.DEFAULT_CHARSET = 'c64_petscii'
+Art.DEFAULT_PALETTE = 'c64_original'
+#Art.DEFAULT_WIDTH, Art.DEFAULT_HEIGHT = 40, 25
+
+Camera.start_x, Camera.start_y = 20, -12
+Camera.start_zoom = 15
+
+# amount of camera zoom each mouse wheel event produces
+#InputLord.wheel_zoom_amount = 3.0
+# same but for keyboard zooming (shift-X/Z)
+#InputLord.keyboard_zoom_amount = 1.0
+
+#CharacterSetSwatch.char_scale = 3
+
+#UIRenderable.grain_strength = 0
+
+# CRT shader starts on
+#Framebuffer.start_crt_enabled = True
+
+# disable CRT shader entirely
+# use this if playscii starts up really slowly on your video card
+#Framebuffer.disable_crt = True
+
+# hold space to show/hide main popup rather than pressing space
+#UI.popup_hold_to_show = True
+
+#Application.show_dev_log = True
+
+# log shader compilation progress to console - enable if something is
+# failing or going slow
+#Shader.log_compile = True
