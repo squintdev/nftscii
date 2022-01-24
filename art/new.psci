@@ -2,9 +2,9 @@
  "active_frame": 0,
  "active_layer": 0,
  "camera": [
-  20,
-  -15,
-  16
+  22.597792226465575,
+  -19.610125369399046,
+  26.46152550145107
  ],
  "charset": "c64_petscii",
  "frames": [
@@ -1072,25 +1072,19 @@
       },
       {
        "bg": 7,
-       "char": 16,
+       "char": 14,
        "fg": 15,
        "xform": 0
       },
       {
        "bg": 7,
-       "char": 12,
+       "char": 6,
        "fg": 15,
        "xform": 0
       },
       {
        "bg": 7,
-       "char": 1,
-       "fg": 15,
-       "xform": 0
-      },
-      {
-       "bg": 7,
-       "char": 25,
+       "char": 20,
        "fg": 15,
        "xform": 0
       },
@@ -1115,6 +1109,12 @@
       {
        "bg": 7,
        "char": 9,
+       "fg": 15,
+       "xform": 0
+      },
+      {
+       "bg": 7,
+       "char": 112,
        "fg": 15,
        "xform": 0
       },
@@ -1528,25 +1528,19 @@
       },
       {
        "bg": 7,
-       "char": 16,
+       "char": 14,
        "fg": 15,
        "xform": 0
       },
       {
        "bg": 7,
-       "char": 139,
+       "char": 6,
        "fg": 15,
        "xform": 0
       },
       {
        "bg": 7,
-       "char": 128,
-       "fg": 15,
-       "xform": 0
-      },
-      {
-       "bg": 7,
-       "char": 152,
+       "char": 20,
        "fg": 15,
        "xform": 0
       },
@@ -1571,6 +1565,12 @@
       {
        "bg": 7,
        "char": 136,
+       "fg": 15,
+       "xform": 0
+      },
+      {
+       "bg": 7,
+       "char": 112,
        "fg": 15,
        "xform": 0
       },
@@ -9624,7 +9624,7 @@
  "height": 40,
  "palette": "c64_original",
  "selected_bg_color": 7,
- "selected_char": 8,
+ "selected_char": 112,
  "selected_fg_color": 15,
  "selected_xform": 0,
  "width": 40

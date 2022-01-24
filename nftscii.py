@@ -5,7 +5,7 @@ from __future__ import print_function
 import sys, os.path
 
 if sys.version_info.major < 3:
-    print('Python 3 is required to run Playscii.', file=sys.stderr)
+    print('Python 3 is required to run NFTscii.', file=sys.stderr)
     sys.exit(1)
 
 import platform
@@ -69,19 +69,19 @@ from game_world import GameWorld, TOP_GAME_DIR
 from game_object import GameObject
 from shader import Shader
 
-APP_NAME = 'Playscii'
+APP_NAME = 'NFTscii'
 VERSION_FILENAME = 'version'
 
-CONFIG_FILENAME = 'playscii.cfg'
+CONFIG_FILENAME = 'nftscii.cfg'
 CONFIG_TEMPLATE_FILENAME = CONFIG_FILENAME + '.default'
 LOG_FILENAME = 'console.log'
-SESSION_FILENAME = 'playscii.session'
+SESSION_FILENAME = 'nftscii.session'
 LOGO_FILENAME = 'ui/logo.png'
 SCREENSHOT_DIR = 'screenshots/'
 FORMATS_DIR = 'formats/'
 AUTOPLAY_GAME_FILENAME = 'autoplay_this_game'
 
-WEBSITE_URL = 'http://vectorpoem.com/playscii'
+WEBSITE_URL = 'https://github.com/squintdev/nftscii'
 WEBSITE_HELP_URL = 'docs/html/howto_main.html'
 AUTOGEN_DOCS_PATH = 'docs/html/generated/'
 AUTOGEN_DOC_MODULES = ['game_object', 'game_world', 'game_room', 'collision',
@@ -119,8 +119,8 @@ class Application:
     show_dev_log = False
     # in art mode, show layers marked invisible to game mode
     show_hidden_layers = False
-    welcome_message = 'Welcome to Playscii! Press SPACE to select characters and colors to paint.'
-    compat_fail_message = "your hardware doesn't appear to meet Playscii's requirements!  Sorry ;________;"
+    welcome_message = 'Welcome to NFTscii! Press SPACE to select characters and colors to paint.'
+    compat_fail_message = "your hardware doesn't appear to meet NFTscii's requirements!  Sorry ;________;"
     game_mode_message = 'Game Mode active, press %s to return to Art Mode.'
     img_convert_message = 'converting bitmap image: %s'
     # can_edit: if False, user can't use art or edit functionality
@@ -140,7 +140,7 @@ class Application:
                  art_filename, game_dir_to_load, state_to_load, autoplay_game):
         self.init_success = False
         self.config_dir = config_dir
-        # keep playscii.cfg lines in case we want to add some
+        # keep nftscii.cfg lines in case we want to add some
         self.config_lines = open(self.config_dir + CONFIG_FILENAME).readlines()
         self.documents_dir = documents_dir
         self.cache_dir = cache_dir
@@ -676,7 +676,7 @@ class Application:
             return self.ui.active_art.palette
     
     def set_window_title(self, text=None):
-        # if editing is locked, don't even show Playscii name
+        # if editing is locked, don't even show NFTscii name
         new_title = '%s - %s' % (APP_NAME, text) if self.can_edit else str(text)
         new_title = bytes(new_title, 'utf-8')
         sdl2.SDL_SetWindowTitle(self.window, new_title)
@@ -732,7 +732,7 @@ class Application:
     def screenshot(self):
         "saves a date + time-stamped screenshot"
         timestamp = time.strftime('%Y-%m-%d_%H-%M-%S')
-        output_filename = 'playscii_%s.png' % timestamp
+        output_filename = 'nftscii_%s.png' % timestamp
         w, h = self.window_width, self.window_height
         pixels = GL.glReadPixels(0, 0, w, h, GL.GL_RGBA, GL.GL_UNSIGNED_BYTE,
                                  outputType=None)
@@ -982,7 +982,7 @@ class Application:
         cfg_file = open(self.config_dir + CONFIG_FILENAME, 'w')
         cfg_file.writelines(self.config_lines)
         cfg_file.close()
-        self.log('Thank you for using Playscii!  <3')
+        self.log('Thank you for using NFTscii!  <3')
     
     def edit_cfg(self):
         cfg_path = self.config_dir + CONFIG_FILENAME
@@ -1061,13 +1061,13 @@ def get_paths():
     # assume anything that isn't Win/Mac is a UNIX
     else:
         # XDG spec doesn't cover any concept of a documents folder :[
-        # if ~/Documents exists use that, else just use ~/Playscii
+        # if ~/Documents exists use that, else just use ~/NFTscii
         documents_dir = os.path.expanduser('~')
         if os.path.exists(documents_dir + DOCUMENTS_SUBDIR):
             documents_dir += DOCUMENTS_SUBDIR
-    # add Playscii/ to documents path
+    # add NFTscii/ to documents path
     documents_dir += '/%s/' % APP_NAME
-    # create Playscii dir AND subdirs for user art, charsets etc if not present
+    # create NFTscii dir AND subdirs for user art, charsets etc if not present
     for subdir in ['', ART_DIR, CHARSET_DIR, PALETTE_DIR, FORMATS_DIR,
                    ART_SCRIPT_DIR, SCREENSHOT_DIR, TOP_GAME_DIR]:
         new_dir = os.path.abspath(documents_dir + subdir)
@@ -1143,7 +1143,7 @@ if __name__ == "__main__":
         new_cfg.writelines(new_cfg_lines)
         new_cfg.close()
         logger.log('Config loaded.')
-    # if cfg file doesn't exist, copy a new one from playscii.cfg.default
+    # if cfg file doesn't exist, copy a new one from nftscii.cfg.default
     else:
         # snip first "this is a template" line
         default_data = open(CONFIG_TEMPLATE_FILENAME).readlines()[1:]
@@ -1154,7 +1154,7 @@ if __name__ == "__main__":
         logger.log('Created new config file %s' % cfg_filename)
     art_to_load, game_dir_to_load, state_to_load = None, None, None
     # usage:
-    # playscii.py [artfile] | [-game gamedir [-state statefile | artfile]]
+    # nftscii.py [artfile] | [-game gamedir [-state statefile | artfile]]
     if len(sys.argv) > 1:
         # "-game test1" args will set test1/ as game dir
         if len(sys.argv) > 2 and sys.argv[1] == '-game':

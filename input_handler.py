@@ -145,7 +145,7 @@ class InputLord:
         buttons = self.ui.art_menu_bar.menu_buttons + self.ui.game_menu_bar.menu_buttons
         items = []
         for button in buttons:
-            # skip eg playscii button
+            # skip eg nftscii button
             if not hasattr(button, 'menu_data'):
                 continue
             for item in button.menu_data.items:
