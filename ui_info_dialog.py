@@ -72,39 +72,27 @@ about_message = [
 """
            Programming Contributions:
 
-Mattias Gustavsson, Rohit Nirmal, Sean Gubelman,
-Erin Congden, Tin Tvrtković, Dan Reeves,
-Raigan Burns
+SquintDev
 
                 Technical Advice:
 
-Shawn Walker, Sean Barrett, Mark Wonnacott,
-Ian MacLarty, Goldbuick, Chevy Ray Johnston,
-Raigan Burns
+
 
             Tool Design Inspiration:
 
-Anna Anthropy, Andi McClure, Bret Victor,
-Tim Sweeney (ZZT), Craig Hickman (Kid Pix),
-Bill Atkinson (HyperCard)
+
 """,
 """
       Love, Encouragement, Moral Support:
 
-L Stiger
-Gail, Gil, and Lee LeBreton
-Brendan Sinclair
-Liz Ryerson
-Johnnemann Nordhagen
-Aubrey Hesselgren
-Zak McClendon
-Claire Hosking
+TheseWoods
+
 #tool-design
 """
 ]
 
 class AboutDialog(PagedInfoDialog):
-    title = 'Playscii'
+    title = 'NFTscii'
     message = about_message
     game_mode_visible = True
     all_modes_visible = True
